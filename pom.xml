@@ -68,6 +68,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.ebay-irn-bank</groupId>
+            <artifactId>ebay-iron-bank-starter</artifactId>
+            <version>1.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

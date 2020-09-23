@@ -8,11 +8,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-@Configuration
 public class DemoIronBankApplication {
 
     @Value("${JAVA_HOME}")
@@ -36,7 +37,9 @@ public class DemoIronBankApplication {
 
 
 
+
     public static void main(String[] args) {
+        System.setProperty("java.awt.headless", "false");
         ConfigurableApplicationContext context = SpringApplication.run(DemoIronBankApplication.class, args);
 
         System.out.println();

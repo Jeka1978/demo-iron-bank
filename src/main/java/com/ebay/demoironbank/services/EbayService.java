@@ -1,5 +1,7 @@
-package com.ebay.demoironbank;
+package com.ebay.demoironbank.services;
 
+import com.ebay.demoironbank.InjectRandomName;
+import com.ebayirnbank.ebayironbankstarter.ConditionalOnProd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -13,7 +15,7 @@ import javax.annotation.PostConstruct;
  * @author Evgeny Borisov
  */
 @Service
-@SpringBootApplication
+@ConditionalOnProd
 public class EbayService {
 
 
