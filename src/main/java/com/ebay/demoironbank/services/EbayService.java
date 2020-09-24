@@ -15,7 +15,6 @@ import javax.annotation.PostConstruct;
  * @author Evgeny Borisov
  */
 @Service
-@ConditionalOnProd
 public class EbayService {
 
 

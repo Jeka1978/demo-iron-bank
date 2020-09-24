@@ -4,15 +4,23 @@ import com.ebay.demoironbank.Bank;
 import com.ebay.demoironbank.dao.BankRepo;
 import com.ebayirnbank.ebayironbankstarter.NotEnoughMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.annotation.SessionScope;
 
 /**
  * @author Evgeny Borisov
  */
 @Service
 @Transactional
+@Scope(value = "session",proxyMode = ScopedProxyMode.INTERFACES)
+@SessionScope
 public class BankServiceImpl implements BankService {
+
+    @Autowired
+    private BankService bankService;
 
     @Autowired
     private BankRepo bankRepo;
