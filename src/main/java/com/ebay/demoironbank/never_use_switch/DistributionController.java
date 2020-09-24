@@ -5,8 +5,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.toMap;
+
 
 /**
  * @author Evgeny Borisov
@@ -15,8 +21,15 @@ import java.util.Optional;
 public class DistributionController {
 
 
-    @Autowired
+
+
     private Map<String,MessageSender> map;
+
+
+
+    public DistributionController(List<MessageSender> messageSenders) {
+        map = messageSenders.stream().collect(toMap(MessageSender::getMyType, identity()));
+    }
 
     @PostMapping("/send")
     public String sendMessage(@RequestBody Message message) {
@@ -28,3 +41,5 @@ public class DistributionController {
        return messageSender.send(message);
     }
 }
+
+

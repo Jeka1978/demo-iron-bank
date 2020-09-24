@@ -5,4 +5,5 @@ package com.ebay.demoironbank.never_use_switch;
  */
 public interface MessageSender {
     String send(Message message);
+    String getMyType();
 }
